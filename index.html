@@ -5,95 +5,330 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Afham Fardeen - Software Engineer Portfolio">
     <title>Afham Fardeen | Software Engineer</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="style.css">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-links a');
+    
+        // Function to remove 'active' class from all nav links
+        function removeActiveClasses() {
+            navLinks.forEach((link) => {
+                link.classList.remove('active');
+            });
+        }
+    
+        // Function to add 'active' class to the current section's nav link
+        function addActiveClass(currentSectionId) {
+            const currentLink = document.querySelector(`.nav-links a[href="#${currentSectionId}"]`);
+            if (currentLink) {
+                currentLink.classList.add('active');
+            }
+        }
+    
+        // Event listener for scrolling
+        window.addEventListener('scroll', () => {
+            let currentSection = '';
+    
+            sections.forEach((section) => {
+                const sectionTop = section.offsetTop - 50;  // Adjust 50px for offset if needed (e.g., for fixed navbar)
+                if (scrollY >= sectionTop) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+    
+            // Remove 'active' class from all and add to the current section
+            removeActiveClasses();
+            addActiveClass(currentSection);
+        });
+    });
+    </script>
+    
 <body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <!-- <a href="#">Afham Fardeen</a> -->
+            </div>
+            <ul class="nav-links" >
+                <li><a href="#summary">Summary</a></li>
+                <li class="lic"><a href="#education">Education</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#internships">Internships</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#strengths">Strengths</a></li>
+                <li><a href="#certificates">Certification</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <div class="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Header Section -->
     <header>
-        <h1>Afham Fardeen</h1>
-        <p>Bangalore, Karnataka | <a href="mailto:afhamfardeen98@gmail.com">afhamfardeen98@gmail.com</a> | +91 7004901819</p>
-        <nav>
-            <a href="#">LinkedIn</a> |
-            <a href="#">Blogs</a> |
-            <a href="#">Tableau Public</a> |
-            <a href="#">CodeChef</a> |
-            <a href="#">HackerEarth</a> |
-            <a href="#">StopStalk</a> |
-            <a href="#">LeetCode</a>
-        </nav>
+        <div class="container">
+            <h1>Afham Fardeen</h1>
+            <p>Bangalore, Karnataka | <a href="mailto:afhamfardeen98@gmail.com">afhamfardeen98@gmail.com</a> | +91 7004901819</p>
+            <nav class="social-links">
+                <a href="https://www.linkedin.com/in/afham-fardeen/" target="_blank"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="https://machinelearningknowledge.ai/author/afham_fardeen/" target="_blank"><i class="fa-regular fa-newspaper"></i> Blogs</a>
+                <a href="https://machinelearningknowledge.ai/author/afham_fardeen/" target="_blank"><i class="fas fa-chart-line"></i> Tableau Public</a>
+                <a href="https://leetcode.com/afhamfardeen98/"  target="_blank"><i class="fa-solid fa-laptop-code"></i> LeetCode</a>
+                <a href="https://www.stopstalk.com/user/profile/afham123" target="_blank" ><i class="fas fa-users"></i> StopStalk</a>
+                <a href="https://www.hackerearth.com/@afham_fardeen/" target="_blank"><i class="fa-solid fa-globe"></i> HackerEarth</a>
+                <a href="https://www.codechef.com/users/afham123" target="_blank"><i class="fas fa-code"></i> CodeChef</a>
+            </nav>
+        </div>
     </header>
 
-    <section id="education">
-        <h2>Education</h2>
-        <ul>
-            <li><strong>Bachelor of Engineering, IT</strong>, UIT-BU, CGPA: 8.21/10 (2018 - 2022)</li>
-            <li>12th, ICSE Board, 85.75% (2017)</li>
-            <li>10th, ICSE Board, 86.00% (2015)</li>
-        </ul>
-    </section>
-
+    <!-- Summary Section -->
     <section id="summary">
-        <h2>Summary</h2>
-        <p>A seasoned Software Engineer with over 3 years of experience, specializing in Backend development. Proficient in tackling complex problems efficiently and excelling in adapting to diverse scenarios. With a strong command of backend development, I thoroughly analyze requirements and construct robust application servers. Leveraging my extensive experience in TypeScript, JavaScript, and NodeJS, I am confident in delivering impactful contributions under any challenging circumstances.</p>
-    </section>
-
-    <section id="skills">
-        <h2>Skills</h2>
-        <ul>
-            <li><strong>Development/Frameworks:</strong> Node.js v14, TypeScript 4.5, React, Firebase, HTML, CSS, AWS</li>
-            <li><strong>Programming Languages:</strong> TypeScript, JavaScript, Python</li>
-            <li><strong>NPM Packages:</strong> Mongoose, Redlock, Redis, Bull, Winston, JOI, PM2, Socket.io</li>
-            <li><strong>Databases:</strong> MongoDB, Redis, MySQL, Postgres, BigQuery, ElasticSearch</li>
-            <li><strong>Others:</strong> GitHub, JWT, Jira, Rest API, GraphQL, JSON</li>
-        </ul>
-    </section>
-
-    <section id="experience">
-        <h2>Work Experience</h2>
-        <div class="job">
-            <h3>Full Stack Developer - 3PlusGames Private Limited</h3>
-            <p>Kochi, Kerala | Jan 2023 – Present (Almost 2 years)</p>
-            <ul>
-                <li>Mentored and led a team of 5 developers, improving project delivery efficiency by 20%.</li>
-                <li>Developed a backend server for a Ludo game, achieving 100K+ downloads.</li>
-                <li>Created real-time multiplayer functionality and implemented voice and text chat in the games.</li>
-                <li>Extracted event data from Firebase and performed application analytics using BigQuery.</li>
-                <li>Implemented serverless architecture with AWS Lambda for intensive jobs like image validation.</li>
-                <li>Technologies used: Node, TypeScript, Express, MongoDB, Redis, AWS (EC2, Lambda, CloudWatch).</li>
-            </ul>
-        </div>
-
-        <div class="job">
-            <h3>Software Developer - Maventic Innovative Solutions</h3>
-            <p>Bangalore, Karnataka | Jan 2022 – Dec 2022 (1 Year)</p>
-            <ul>
-                <li>Developed a field service management web application for Singapore Telecom Limited.</li>
-                <li>Integrated frontend UI with a database through API connections, using Node.js, MySQL, and MVC architecture.</li>
-            </ul>
+        <div class="container summary-content">
+            <div class="summary-image">
+                <img src="profile.png" alt="Profile Image">
+            </div>
+            <div class="summary-text">
+                <h2><i class="fas fa-user"></i> Professional Summary</h2>
+                <p>Innovative Full Stack Developer with <b>3+ years</b> of experience , in designing, developing, and deploying 
+                    scalable applications and platforms using cutting-edge technologies. Known for problem-solving skills and passion for 
+                    building robust software architectures. Proven track record in leading projects, mentoring junior developers, 
+                    and collaborating with cross-functional teams to deliver exceptional results.
+                    Proficient in tackling complex problems efficiently and excelling in adapting to diverse scenarios. With a 
+                    strong command of backend development, I thoroughly analyze requirements and construct robust application servers. 
+                    Leveraging my extensive experience in <b>TypeScript, JavaScript, and NodeJS</b>, I am confident in delivering 
+                    impactful contributions under any challenging circumstances.
+                </p>
+            </div>
         </div>
     </section>
 
-    <section id="internships">
-        <h2>Internships</h2>
-        <div class="internship">
-            <h3>Machine Learning Intern - Machine Learning Knowledge</h3>
-            <p>Remote | Mar 2021 – Jun 2021 (4 Months)</p>
+    <!-- Education Section -->
+    <section id="education" class="education-section">
+        <div class="container education-content">
+            <div class="education-list">
+            <h2><i class="fas fa-graduation-cap"></i>&nbsp;Education</h2>
             <ul>
-                <li>Authored top-ranked NLP articles, improving the company's online presence.</li>
-                <li>Wrote content on Random Forest, Word2Vec, and Spacy StopWords.</li>
+                <li><strong>Bachelor of Engineering, IT, (2018 - 2022)</strong>, </li>
+                <li>University Institute of Technology , CGPA: 8.21/10 - <a href="https://drive.google.com/file/d/1CgthFQyQw7U4ZX7Yt4mSxkVDEg8Ae_TV/view" target="_blank">Certificate</a></li>
+                <li>12th, ICSE Board, 85.75% (2017) - <a style="color: FF6F61 !important;" href="https://drive.google.com/drive/folders/1bek1YQ7wSz8C70B3YrBjitFS6qLDolwz?usp=sharing" target="_blank">Certificate</a></li> 
+                <li>10th, ICSE Board, 86.00% (2015) - <a style="color: FF6F61 !important;" href="https://drive.google.com/drive/folders/1B1TIU7iu0i32IRtqxRyOZhYXGiehiiLx?usp=sharing" target="_blank">Certificate</a></li>
             </ul>
-        </div>
-
-        <div class="internship">
-            <h3>Data Science and Business Analyst Intern - Sparks Foundation</h3>
-            <p>Remote | Oct 2020 – Nov 2020 (2 Months)</p>
-            <ul>
-                <li>Extracted, processed, and visualized data to provide insightful conclusions using Python.</li>
-            </ul>
+            </div>
+            <div class="education-image">
+                <img src="./education.jpg" alt="Education Image" />
+            </div>
         </div>
     </section>
 
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section">
+        <div class="container skills-content">
+            <!-- Second half: Skills Image -->
+            <div class="skills-image">
+                <img src="skills.jpg" alt="Skills Image" />
+            </div>
+            <!-- First half: Skills List -->
+            <div class="skills-list">
+                <h2><i class="fas fa-tools"></i>&nbsp;Skills</h2>
+                <ul >
+                    <li><strong>Frontend:</strong> HTML, CSS, React, JavaScript, Bootstrap, Responsive Design</li>
+                    <li><strong>Backend:</strong> Node.js, Express, TypeScript, Firebase, Rest API, GraphQL, JSON, JWT</li>
+                    <li><strong>NPM Packages:</strong> Mongoose, Redlock, Redis, Bull, Winston, JOI, PM2, Socket.io</li>
+                    <li><strong>Databases:</strong> MongoDB, Redis, MySQL, Postgres, BigQuery, ElasticSearch</li>
+                    <li><strong>Devops:</strong> AWS (EC2, ECS, Lambda, CloudWatch, Elastic Cache), CI/CD (GitHub Actions)</li>
+                    <li><strong>Others:</strong> Jira, Python, c++</li>
+                </ul>
+            </div>
+
+            
+        </div>
+    </section>
+
+
+    <!-- Work Experience Section -->
+    <section id="experience" class="experience-section">
+        <div class="container experience-content">
+            <div class="experience-text">
+                <h2><i class="fas fa-briefcase"></i> Work Experience</h2>
+                <div class="job">
+                    <h3>Full Stack Developer - 3PlusGames Private Limited</h3>
+                    <p>Kochi, Kerala | Jan 2023 – Present (Approaching 2 years of experience)</p>
+                    <ul>
+                        <li>Mentored and led a team of 5 developers, improving project delivery efficiency by 20%.</li>
+                        <li>Developed a backend server for a Ludo game, achieving <b>100K+ downloads</b>.</li>
+                        <li>Created real-time multiplayer functionality and implemented voice and text chat in the games.</li>
+                        <li>Extracted event data from Firebase and performed application analytics using BigQuery.</li>
+                        <li>Implemented serverless architecture with AWS Lambda for intensive jobs like image validation.</li>
+                        <li>Technologies used: <b>Node, TypeScript, Express, MongoDB, Redis, AWS (EC2, Lambda, CloudWatch), BigQuery, Socket.io, React and Firebase </b></li>
+                    </ul>
+                </div>
+                
+                <div class="job">
+                    <h3>Software Developer - Maventic Innovative Solutions</h3>
+                    <p>Bangalore, Karnataka | Jan 2022 – Dec 2022 (1 Year)</p>
+                    <ul>
+                        <li>Developed a field service management web application for Singapore Telecom Limited.</li>
+                        <li>Integrated frontend UI with a database through API connections, using <b>Node.js, TypeScript, SAPUI5, MySQL, and MVC </b>architecture.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="experience-image">
+                <img src="work.png" alt="Work Experience Image">
+            </div>
+        </div>
+    </section>
+
+    <!-- Internships Section -->
+    <section id="internships" class="internships-section">
+        <div class="container internships-content">
+            <!-- Right column: Image -->
+            <div class="internships-image">
+                <img src="internship.jpg" alt="Internship Image">
+            </div>
+            <div class="internships-text">
+                <h2><i class="fas fa-lightbulb"></i> Internships</h2>
+                <div class="internship">
+                    <h3>Machine Learning Intern - Machine Learning Knowledge</h3>
+                    <p>Remote | Mar 2021 – Jun 2021 (4 Months)</p>
+                    <ul>
+                        <li>Authored top-ranked NLP articles, improving the company's online presence.</li>
+                        <li>Wrote content on Random Forest, Word2Vec, and Spacy StopWords.</li>
+                    </ul>
+                </div>
+
+                <div class="internship">
+                    <h3>Data Science and Business Analyst Intern - Sparks Foundation</h3>
+                    <p>Remote | Oct 2020 – Nov 2020 (2 Months)</p>
+                    <ul>
+                        <li>Extracted, processed, and visualized data to provide insightful conclusions using Python.</li>
+                    </ul>
+                </div>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Publications/Presentations Section -->
+    <section id="publications" class="publications-section">
+        <div class="container publications-content">
+            <!-- Left column: Text -->
+            <div class="publications-text">
+                <h2><i class="fa-regular fa-file-powerpoint"></i>&nbsp;Publications/Presentations</h2>
+                <ul>
+                    <li>Works as Natural Language Processing Content Writer, authored articles on NLP libraries like NLTK and Spacy, achieving top Google search rankings and enhancing the company's online presence. (Python)</li>
+                    <li>Wrote informative articles on Random Forest, Word2Vec, Decision Classifier, and Spacy StopWords. <a class="blog" target="_blank" href="https://machinelearningknowledge.ai/author/afham_fardeen/">link</a></li>
+                </ul>
+            </div>
+
+        <!-- Right column: Image -->
+        <div class="publications-image">
+                <img src="article.jpg" alt="Publications Image">
+            </div>
+        </div>
+    </section>
+    <!-- Strengths Section -->
+    <section id="strengths" class="strengths-section">
+        <div class="container strengths-content">
+            <!-- First column: Image -->
+            <div class="strengths-image">
+                <img src="strength.jpg" alt="Strengths Image">
+            </div>
+            <!-- Second column: Strengths text -->
+            <div class="strengths-text">
+                <h2><i class="fas fa-dumbbell"></i>&nbsp; Strengths</h2>
+                <ul>
+                    <li>Strong communication and leadership skills with the ability to mentor junior developers.</li>
+                    <li>Excellent problem-solving abilities, focusing on optimized and scalable solutions.</li>
+                    <li>Ability to work in fast-paced environments and deliver projects on time.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section id="certificates" class="certificates-section">
+        <div class="container certificates-content">
+            <!-- Left column: Certificates List -->
+            <div class="certificates-list">
+                <h2><i class="fas fa-certificate"></i>&nbsp;Certifications</h2>
+                <ul>
+                    <li>
+                        <strong>The Data Science Course 2021: Complete Data Science Bootcamp</strong>
+                        <br>Udemy | Oct 2020 | <a href="https://www.udemy.com/certificate/UC-a23874f5-d711-4bdc-a8f8-595f44dc0fa5/" target="_blank">Certificate </a>
+                    </li>
+                    <li>
+                        <strong>Python for Machine Learning Bootcamp</strong>
+                        <br>Udemy | Dec 2020 | <a href="https://www.udemy.com/certificate/UC-c81460f4-49cb-4ef1-9416-21d5fc1e5e98/" target="_blank">Certificate </a>
+                    </li>
+                    <li>
+                        <strong>The Complete SQL Bootcamp 2021: Go from Zero to Hero</strong>
+                        <br>Udemy | Nov 2020 | <a href="https://www.udemy.com/certificate/UC-b1514441-5f6d-4b21-933a-2876adf1a67d/" target="_blank">Certificate </a>
+                    </li>
+                    <li>
+                        <strong>Tableau 2020 A-Z Hands-On Tableau Training for Data Science</strong>
+                        <br>Udemy | Jan 2021 | <a href="https://drive.google.com/file/d/1JIAoRPQutM6SJIVd1g2jXPeWL9tu5-Ij/view" target="_blank">Certificate </a>
+                    </li>
+                    <li>
+                        <strong>Data Science and Machine Learning Bootcamp with R</strong>
+                        <br>Udemy | May 2021 | <a href="https://www.udemy.com/certificate/UC-b51b0173-0231-46b4-9119-6e265f57f8c7/" target="_blank">Certificate </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Right column: Image -->
+            <div class="certificates-image">
+                <img src="Certification.png" alt="Certificates Image">
+            </div>
+        </div>
+    </section>
+
+    
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container contact-content">
+            <!-- Right column: Image -->
+            <div class="contact-image">
+                <img src="contact.jpg" alt="Contact Image">
+            </div>
+            <div class="contact-info">
+                <h2><i class="fas fa-envelope"></i> Contact</h2>
+                <p>If you'd like to get in touch, feel free to reach out via email or connect with me on LinkedIn!</p>
+                <ul>
+                    <li><p>Email: <a target="_blank" href="mailto:afhamfardeen98@gmail.com">afhamfardeen98@gmail.com</a></p></li>
+                    <li><p>Phone: +91 7004901819</p></li>
+                    <li><p>LinkedIn : <a target="_blank" href="https://www.linkedin.com/in/afham-fardeen/">LinkedIn</a></p></li>
+                </ul>
+            </div>
+            
+        </div>
+    </section>
+
+    <!-- Footer -->
     <footer>
-        <p>&copy; 2024 Afham Fardeen</p>
+        <div class="container">
+            <p>&copy; 2024 Afham Fardeen | All Rights Reserved</p>
+        </div>
     </footer>
+
+    <!-- JavaScript for Navbar Toggle -->
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
